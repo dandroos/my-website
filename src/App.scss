@@ -1,0 +1,67 @@
+$primary: rgb(113, 155, 117);
+$secondary: complement(lighten($primary, 45%));
+$info: pink;
+$white: #fafafa;
+$enable-rounded: false;
+$body-color: darken($primary, 30%);
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+body{
+  font-family: 'Lato'
+}
+
+h1, h2, h3, h4, h5, .heading {
+  font-family: 'Lexend Deca';
+  font-weight: 700;
+  letter-spacing: -0.04rem;
+}
+
+nav {
+  background: radial-gradient($secondary, darken($secondary, 5%));
+  & ul {
+    list-style: none;
+    padding: 0;
+    & li a{
+      text-decoration: none !important;
+      transition: all .25s;
+    }
+  }
+}
+
+.toggler {
+  background: $secondary;
+  &:hover{
+    background: lighten($secondary, 10%);
+  }
+}
+
+.hero {
+  // background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+  //   url(https://source.unsplash.com/1600x900/?computer);
+  // background-size: cover;
+}
+
+.footer-bar{
+  background: $secondary
+}
+
+  html{
+    font-size: 18.5px;
+  }
+@media (max-width: 768px){
+  html{
+    font-size: 15.5px;
+  }
+}
+@media (max-width: 375px){
+  html{
+    font-size: 14.5px;
+  }
+}
+@media (max-width: 340px){
+  html{
+    font-size: 13.5px;
+  }
+}
+
