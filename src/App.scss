@@ -7,12 +7,17 @@ $body-color: darken($primary, 30%);
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
-body{
-  font-family: 'Lato'
+body {
+  font-family: "Lato";
 }
 
-h1, h2, h3, h4, h5, .heading {
-  font-family: 'Lexend Deca';
+h1,
+h2,
+h3,
+h4,
+h5,
+.heading {
+  font-family: "Lexend Deca";
   font-weight: 700;
   letter-spacing: -0.04rem;
 }
@@ -22,46 +27,71 @@ nav {
   & ul {
     list-style: none;
     padding: 0;
-    & li a{
+    & li a {
       text-decoration: none !important;
-      transition: all .25s;
+      transition: all 0.25s;
     }
   }
 }
 
 .toggler {
   background: $secondary;
-  &:hover{
+  &:hover {
     background: lighten($secondary, 10%);
   }
 }
 
-.hero {
-  // background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
-  //   url(https://source.unsplash.com/1600x900/?computer);
-  // background-size: cover;
+// .hero {
+//   background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+//     url(https://source.unsplash.com/1600x900/?computer);
+//   background-size: cover;
+// }
+
+.footer-bar {
+  background: $secondary;
 }
 
-.footer-bar{
-  background: $secondary
+.image-wrap {
+  height: 11rem;
+  width: 11rem;
+  border: .5rem solid $primary;
+  display: inline-block;
+  border-radius: 50%;
 }
 
-  html{
-    font-size: 18.5px;
-  }
-@media (max-width: 768px){
-  html{
+html {
+  font-size: 18.5px;
+}
+
+.social-bar {
+  bottom: 1rem;
+}
+
+// @media(max-width: 950px){
+//   .hero{
+//     background-position-x: -200px !important;
+//   }
+// }
+@media (max-width: 768px) {
+  html {
     font-size: 15.5px;
   }
+  .social-bar {
+    bottom: 5rem;
+  }
 }
-@media (max-width: 375px){
-  html{
+// @media(max-width: 630){
+//   .hero{
+//     background-position-x: -300px !important;
+//   }
+// }
+@media (max-width: 375px) {
+  html {
     font-size: 14.5px;
   }
 }
-@media (max-width: 340px){
-  html{
+@media (max-width: 340px) {
+  html {
     font-size: 13.5px;
   }
 }
-

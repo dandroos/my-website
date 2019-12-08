@@ -21,7 +21,7 @@ export default function Nav(props) {
       <ul
         style={{
           textAlign: "center",
-          fontSize: "3.5rem"
+          fontSize: "3.25rem"
         }}
         className="heading"
       >

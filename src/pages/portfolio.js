@@ -4,6 +4,9 @@ import { Row, Col, Nav, NavItem, NavLink } from "reactstrap";
 import Project from "../components/Project";
 import BottomPadding from "../components/BottomPadding"
 
+//TODO: Add icons
+//TODO: Add anchor links (with smooth scrolling)
+
 export default function portfolio() {
   return (
     <div>

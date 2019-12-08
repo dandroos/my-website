@@ -8,8 +8,8 @@ export default function SocialBar() {
     <div
       style={{
         position: "absolute",
-        bottom: 60
       }}
+      className="social-bar"
     >
       <Nav>
         <NavItem>

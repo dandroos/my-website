@@ -1,14 +1,21 @@
 import React from 'react'
 import { Row, Col } from 'reactstrap'
 
-import DavePhoto from '../images/dave.jpeg'
+import DavePhoto from '../images/dave-optimized.jpeg'
 
 export default function about() {
+
+    //TODO: Move 'About' above img
+    //TODO: Grid it up so that the image goes left on big screens
+    //TODO: More pics
     return (
         <div className="text-center">
-            <span className="image-wrap" style={{
-                filter: 'drop-shadow(0 0rem .1rem black)'
-            }}>
+            <div className="image-wrap">
+                {/* height: 12rem;
+    width: 12rem;
+    border: 1rem solid black;
+    display: inline-block;
+    border-radius: 50%; */}
                 <div style={{
                     display: 'inline-block',
                     width: '10rem',
@@ -16,9 +23,8 @@ export default function about() {
                     background: `url(${DavePhoto})`,
                     backgroundSize: 'cover',
                     clipPath: 'circle(50% at 50% 50%)',
-                    boxShadow: '0 .5rem 2rem black'  
                 }}></div>
-            </span>
+            </div>
             <h2>About</h2>
             <Row>
                 <Col className="text-justify">

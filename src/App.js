@@ -16,8 +16,7 @@ import Contact from "./pages/contact";
 
 function App() {
   const [appState, setAppState] = useState({
-    collapseMenu: false
-    // collapseMenu: true
+    collapseMenu: true
   });
 
   const toggleMenu = () => {
@@ -30,17 +29,28 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Transition native
+        <Transition
+          native
           items={!appState.collapseMenu}
           from={{ position: "absolute", marginTop: -1000 }}
           enter={{ marginTop: 0 }}
           leave={{ marginTop: -1000 }}
-          config={{ duration: 200, velocity: 1000}}
+          config={{ duration: 200, velocity: 1000 }}
         >
           {show =>
             show &&
             (props => (
-              <animated.div style={{...props, position: 'fixed', top: 0, right: 0, bottom: 0, left:0, zIndex: 1000 }}>
+              <animated.div
+                style={{
+                  ...props,
+                  position: "fixed",
+                  top: 0,
+                  right: 0,
+                  bottom: 0,
+                  left: 0,
+                  zIndex: 1000
+                }}
+              >
                 <Nav isCollapsed={appState.collapseMenu} toggle={toggleMenu} />
               </animated.div>
             ))
