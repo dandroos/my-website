@@ -1,17 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Nav, NavItem, NavLink } from "reactstrap";
 
 export default function Project(props) {
-  //   switch (props.type) {
-  //     case "web":
-  //         setLinkText('View')
-  //         break;
-  //     case "app":
-  //     case "mobile":
-  //         setLinkText('View Screenshot')
-  //         break;
-  //   }
-
   return (
     <div className="mb-4">
       {/* screenshot */}

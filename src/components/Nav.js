@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, {useState} from "react";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 import SocialBar from "./SocialBar"
@@ -14,8 +14,17 @@ export default function Nav(props) {
     align-items: center;
     text-align: center;
     margin: 0;
-    z-index: 500;
   `;
+  const currentLocation = useLocation().pathname
+
+  const handleClick = (e)=>{
+    if(e.target.getAttribute('href') !== currentLocation){
+      props.toggle(e, true)
+    }else{
+      props.toggle(e, false)
+    }
+  }
+
   return (
     <Menu>
       <ul
@@ -26,27 +35,27 @@ export default function Nav(props) {
         className="heading"
       >
         <li>
-          <Link to="/" onClick={props.toggle} className="nav-menu-link">
+          <Link to="/" onClick={handleClick} linkclick="true" className="nav-menu-link">
             Home
           </Link>
         </li>
         <li>
-          <Link to="/services" onClick={props.toggle} className="nav-menu-link">
+          <Link to="/services" onClick={handleClick} linkclick="true" className="nav-menu-link">
             Services
           </Link>
         </li>
         <li>
-          <Link to="/about" onClick={props.toggle} className="nav-menu-link">
+          <Link to="/about" onClick={handleClick} linkclick="true" className="nav-menu-link">
             About
           </Link>
         </li>
         <li>
-          <Link to="/portfolio" onClick={props.toggle} className="nav-menu-link"> 
+          <Link to="/portfolio" onClick={handleClick} linkclick="true" className="nav-menu-link"> 
             My Work
           </Link>
         </li>
         <li>
-          <Link to="/contact" onClick={props.toggle} className="nav-menu-link">
+          <Link to="/contact" onClick={handleClick} linkclick="true" className="nav-menu-link">
             Contact
           </Link>
         </li>

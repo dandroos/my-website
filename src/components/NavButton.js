@@ -8,7 +8,7 @@ export default function NavButton(props) {
         position: fixed;
         top: 15px;
         right: 15px;
-        z-index: 1000;
+        z-index: 10000;
         box-shadow: 0 0 .25rem;
         border-radius: 50%;
         height: 3rem;
@@ -35,10 +35,3 @@ export default function NavButton(props) {
     </Toggler>
   );
 }
-
-const lineStyle = {
-  borderBottom: "2px solid",
-  display: "block",
-  height: 5,
-  width: "100%"
-};

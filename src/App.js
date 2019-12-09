@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
 import { Container } from "reactstrap";
@@ -13,22 +13,60 @@ import Services from "./pages/services";
 import About from "./pages/about";
 import Portfolio from "./pages/portfolio";
 import Contact from "./pages/contact";
+import LoadScreen from "./components/LoadScreen";
 
 function App() {
   const [appState, setAppState] = useState({
-    collapseMenu: true
+    collapseMenu: true,
+    isReady: false
+    // isReady: false
   });
 
-  const toggleMenu = () => {
-    setAppState({
-      ...appState,
-      collapseMenu: !appState.collapseMenu
-    });
+  const toggleMenu = (e, newLink = false) => {
+    if (e.target.getAttribute("linkclick")) {
+      if (newLink) {
+        setAppState({
+          ...appState,
+          isReady: false
+        });
+      } else {
+        console.log("reached");
+        setAppState({
+          ...appState,
+          collapseMenu: !appState.collapseMenu
+        });
+      }
+    } else {
+      setAppState({
+        ...appState,
+        collapseMenu: !appState.collapseMenu
+      });
+    }
   };
 
+  const contentLoaded = () => {
+    if (!appState.isReady) {
+      setAppState({
+        ...appState,
+        isReady: true
+      });
+      window.scrollTo(0, 0)
+    }
+  };
+
+  useEffect(() => {
+    if (appState.isReady) {
+      setAppState({
+        ...appState,
+        collapseMenu: true
+      });
+    }
+  }, [appState.isReady]);
+
   return (
-    <Router>
+    <Router onUpdate={()=> console.log('herrrre!!!!')}>
       <div className="App">
+        <LoadScreen isReady={appState.isReady} />
         <Transition
           native
           items={!appState.collapseMenu}
@@ -48,7 +86,7 @@ function App() {
                   right: 0,
                   bottom: 0,
                   left: 0,
-                  zIndex: 1000
+                  zIndex: 10000
                 }}
               >
                 <Nav isCollapsed={appState.collapseMenu} toggle={toggleMenu} />
@@ -61,19 +99,19 @@ function App() {
         <Container>
           <Switch>
             <Route path="/contact">
-              <Contact />
+              <Contact isReady={contentLoaded} />
             </Route>
             <Route path="/about">
-              <About />
+              <About isReady={contentLoaded} />
             </Route>
             <Route path="/portfolio">
-              <Portfolio />
+              <Portfolio isReady={contentLoaded} />
             </Route>
             <Route path="/services">
-              <Services />
+              <Services isReady={contentLoaded} />
             </Route>
             <Route path="/">
-              <Hero />
+              <Hero isReady={contentLoaded} />
             </Route>
           </Switch>
         </Container>

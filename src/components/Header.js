@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <div className="p-2" >
+    <div className="p-2">
       <Link to="/" className="navbar-brand">
         <h1 style={{
       width: '70%'

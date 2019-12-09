@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col, Form, FormGroup, Label, Input, Button } from "reactstrap";
 
-import BottomPadding from '../components/BottomPadding'
+import BottomPadding from "../components/BottomPadding";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
-export default function contact() {
+export default function Contact(props) {
+
+  useEffect(()=>{
+    props.isReady()
+  }, [])
+  
   return (
     <div>
       <h2>Contact</h2>
@@ -41,7 +46,13 @@ export default function contact() {
               <legend>Preferred contact Method:</legend>
               <FormGroup check inline>
                 <Label check>
-                  <Input type="radio" name="method" value="email" defaultChecked /> {` `}
+                  <Input
+                    type="radio"
+                    name="method"
+                    value="email"
+                    defaultChecked
+                  />{" "}
+                  {` `}
                   Email
                 </Label>
               </FormGroup>
@@ -61,17 +72,20 @@ export default function contact() {
           </Col>
         </Row>
         <Row>
-            <Col>
-                <FormGroup>
-                    <Label for="message">Message:</Label>
-                    <Input type="textarea" id="message"/>
-                </FormGroup>
-            </Col>
+          <Col>
+            <FormGroup>
+              <Label for="message">Message:</Label>
+              <Input type="textarea" id="message" />
+            </FormGroup>
+          </Col>
         </Row>
         <Row>
-            <Col>
-                <Button color="primary" block>Submit<FontAwesomeIcon icon={faPaperPlane} className="ml-2"/></Button>
-            </Col>
+          <Col>
+            <Button color="primary" block>
+              Submit
+              <FontAwesomeIcon icon={faPaperPlane} className="ml-2" />
+            </Button>
+          </Col>
         </Row>
       </Form>
       <BottomPadding />
