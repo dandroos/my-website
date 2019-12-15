@@ -6,6 +6,7 @@ import WebGraphic from '../images/www.svg'
 import DesktopGraphic from '../images/workstation.svg'
 import MobileGraphic from '../images/mobile-app.svg'
 import PaddingBottom from '../components/BottomPadding'
+import { FormattedMessage } from 'react-intl'
 
 export default function Services(props) {
 
@@ -26,20 +27,25 @@ export default function Services(props) {
         }
     }
     return (
-        <div>
-            <h2>My Services</h2>
-            <Row className="text-center">
-                <Col sm={6}>
+        <div className="text-center">
+            <h2 className="display-3"><FormattedMessage id="services.title" defaultMessage="My Services" /></h2>
+            <p className="display-4">
+            <FormattedMessage
+              id="services.paragraph_heading"
+              defaultMessage="I'm a designer / developer based in Fuerteventura, Canary Islands."
+            />
+          </p>
+            <Row>
+                <Col sm={12}>
                     <Service 
-                        name="Web"
+                        name="web"
                         graphic={WebGraphic} 
-                        content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo explicabo nemo, molestias ad autem, veniam odio ducimus magni ex quis iure. Consectetur quod ipsum amet ipsa quasi impedit quam architecto." 
                         load={imageLoadCheck}
                         />
                 </Col>
                 <Col sm={6}>
                     <Service 
-                        name="Desktop"
+                        name="software"
                         graphic={DesktopGraphic}
                         content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo explicabo nemo, molestias ad autem, veniam odio ducimus magni ex quis iure. Consectetur quod ipsum amet ipsa quasi impedit quam architecto."
                         load={imageLoadCheck}
@@ -47,7 +53,7 @@ export default function Services(props) {
                 </Col>
                 <Col sm={6}>
                     <Service 
-                        name="Mobile"
+                        name="mobile"
                         graphic={MobileGraphic}
                         content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo explicabo nemo, molestias ad autem, veniam odio ducimus magni ex quis iure. Consectetur quod ipsum amet ipsa quasi impedit quam architecto."
                         load={imageLoadCheck}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Nav, NavItem, NavLink } from "reactstrap";
+import { FormattedMessage } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -20,16 +21,16 @@ export default function Footer() {
     >
       <Nav justified pills>
         <NavItem>
-          <ContactMethod title="Phone" icon={faPhone} />
+          <ContactMethod title="call" icon={faPhone} />
         </NavItem>
         <NavItem>
-          <ContactMethod title="Email" icon={faEnvelope} />
+          <ContactMethod title="email" icon={faEnvelope} />
         </NavItem>
         <NavItem>
-          <ContactMethod title="WhatsApp" icon={faWhatsapp} />
+          <ContactMethod title="whatsapp" icon={faWhatsapp} />
         </NavItem>
         <NavItem>
-          <ContactMethod title="Messenger" icon={faFacebookMessenger} />
+          <ContactMethod title="messenger" icon={faFacebookMessenger} />
         </NavItem>
       </Nav>
     </div>
@@ -41,7 +42,9 @@ const ContactMethod = props => {
     <NavLink href="#" className="btn btn-primary">
       <FontAwesomeIcon icon={props.icon} className="text-center" />
       <p className="mb-0">
-        <small>{props.title}</small>
+        <small>
+          <FormattedMessage id={`footer.${props.title}`} defaultMessage="en" />
+        </small>
       </p>
     </NavLink>
   );

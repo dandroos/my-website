@@ -1,37 +1,53 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 export default function NavButton(props) {
-    const Toggler = styled.div`
-        position: fixed;
-        top: 15px;
-        right: 15px;
-        z-index: 10000;
-        box-shadow: 0 0 .25rem;
-        border-radius: 50%;
-        height: 3rem;
-        width: 3rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        transition: all .25s;
+    
+    let placeToggle;
 
-        :hover{
-            box-shadow: 0 0 .5rem;
-        }
-    `
+    const [compState, setCompState] = useState({
+      scroll_position: window.scrollY,
+      top: 0,
+      height: '3.5rem',
+      width: '3.5rem'
+    })
+
+    useEffect(()=>{
+      window.addEventListener('scroll', (e)=>{
+        setCompState({ ...compState, scroll_position: window.scrollY })
+       
+      })
+    }, [])
+
+    useEffect(()=>{
+      if(compState.scroll_position > 0){
+        setCompState({
+          ...compState,
+          top: 15
+        })
+      }else{
+        setCompState({
+          ...compState,
+          top: 38
+        })
+      }
+    }, [compState.scroll_position])
   return (
-    <Toggler
+    <div
       onClick={props.click}
       className="toggler"
+      style={{
+        top: compState.top,
+        height: compState.height,
+        width: compState.width
+      }}
     >
       <div>
         {props.isOpen ? (<FontAwesomeIcon icon={faBars} />) : (<FontAwesomeIcon icon={faTimes} />)
         }
       </div>
-    </Toggler>
+    </div>
   );
 }

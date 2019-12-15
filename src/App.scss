@@ -1,9 +1,24 @@
 $primary: rgb(113, 155, 117);
 $secondary: complement(lighten($primary, 45%));
-$info: pink;
+$info: lighten($primary, 25%);
 $white: #fafafa;
 $enable-rounded: false;
 $body-color: darken($primary, 30%);
+
+$display1-size:               5rem !default;
+$display2-size:               4.5rem !default;
+$display3-size:               3.5rem !default;
+$display4-size:               2.5rem !default;
+
+$container-reduction: 200px;
+
+$container-max-widths: (
+  sm: 640px - $container-reduction,
+  md: 720px - $container-reduction,
+  lg: 960px - $container-reduction,
+  xl: 1140px - $container-reduction
+) !default;
+// $line-height-base:            2 !default;
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
@@ -18,7 +33,7 @@ h4,
 h5,
 .heading {
   font-family: "Lexend Deca";
-  font-weight: 700;
+  font-weight: 700 !important;
   letter-spacing: -0.04rem;
 }
 
@@ -36,27 +51,48 @@ nav {
 
 .toggler {
   background: $secondary;
+  position: fixed;
+        // top: 35px;
+        right: 10px;
+        z-index: 10000;
+        box-shadow: 0 0 .25rem;
+        border-radius: 50%;
+        height: 3rem;
+        width: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all .25s;
+
   &:hover {
     background: lighten($secondary, 10%);
+    box-shadow: 0 0 .5rem;
   }
+  animation: togglerBounce 1s infinite alternate;
 }
 
-// .hero {
-//   background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
-//     url(https://source.unsplash.com/1600x900/?computer);
-//   background-size: cover;
-// }
+.paragraph-text{
+  line-height: 2rem;
+}
 
 .footer-bar {
   background: $secondary;
 }
 
 .image-wrap {
-  height: 11rem;
-  width: 11rem;
+  height: 15rem;
+  width: 15rem;
   border: .5rem solid $primary;
   display: inline-block;
   border-radius: 50%;
+}
+
+.chart rect {
+  fill: $primary;
+  padding: 1rem;
+  margin: .5rem;
+  color: white;
 }
 
 html {
@@ -94,4 +130,9 @@ html {
   html {
     font-size: 13.5px;
   }
+}
+
+@keyframes togglerBounce {
+  from {transform: scale(.95)}
+  to {transform: scale(1)}
 }

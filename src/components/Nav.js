@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { Button } from "reactstrap"
 
 import SocialBar from "./SocialBar"
 
@@ -25,8 +26,11 @@ export default function Nav(props) {
     }
   }
 
+
   return (
     <Menu>
+    {/* <Button id="english" onClick={props.setLang}><img src={UKFlag} style={{ width: '2rem' }} /></Button> */}
+    {/* <Button id="spanish" onClick={props.setLang}><img src={SpanishFlag} style={{ width: '2rem' }} /></Button> */}
       <ul
         style={{
           textAlign: "center",

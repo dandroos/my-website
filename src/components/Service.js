@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import {FormattedMessage} from 'react-intl'
 
 export default function Service(props) {
     
@@ -9,10 +11,13 @@ export default function Service(props) {
               paddingBottom: '.25rem'  
             }}/>
             <h4 >
-                {props.name}
+                <FormattedMessage id={`services.${props.name}`} defaultMessage="en" />
             </h4>
-            <p className="m-0">
-                {props.content}
+            <p className="text-justify paragraph-text">
+               <FormattedMessage id={`services.${props.name}_description`} defaultMessage="en" />
+            </p>
+            <p>
+                <Link to={`/portfolio#${props.name}`}><FormattedMessage id="services.check_out" defaultMessage="Check out my work!" /></Link>
             </p>
         </div>
     )

@@ -41,7 +41,7 @@ export default function Contact(props) {
               <Input type="text" id="name" placeholder="(Optional)" />
             </FormGroup>
           </Col>
-          <Col md="6" lg="4">
+          <Col md="6" lg="12">
             <FormGroup tag="fieldset">
               <legend>Preferred contact Method:</legend>
               <FormGroup check inline>
@@ -83,7 +83,7 @@ export default function Contact(props) {
           <Col>
             <Button color="primary" block>
               Submit
-              <FontAwesomeIcon icon={faPaperPlane} className="ml-2" />
+              <FontAwesomeIcon icon={faPaperPlane} onLoad={()=> console.log('helllooooooo')} className="ml-2" />
             </Button>
           </Col>
         </Row>

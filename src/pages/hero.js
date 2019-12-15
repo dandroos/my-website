@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom"
 import styled from "styled-components";
 import { Button } from "reactstrap";
 import BackgroundImageOnLoad from "background-image-on-load";
+
+import { FormattedMessage } from 'react-intl';
+import LanguageBank from '../text/languages'
 
 import LoadScreen from "../components/LoadScreen";
 import BG from "../images/dave1-optimized.jpeg";
@@ -29,32 +33,37 @@ export default function Hero(props) {
     align-items: center;
   `;
 
+  const handleClick = (e)=>{
+    props.toggle(e, true)
+  }
+
   return (
     <Hero className="hero">
       <BackgroundImageOnLoad
         src={BG}
         onLoadBg={() => {
-          //TODO: Trigger an animation to reveal
           props.isReady();
         }}
         onError={err => console.log("error", err)}
       />
       <div className="container">
-        <p
-          className="lead heading"
+        <h2
+          className="display-3"
           style={{
-            fontSize: "2.5rem"
+            marginTop: '5rem',
           }}
         >
-          Lorem ipsum dolor sit.
+          <FormattedMessage id="hero.headline" defaultMessage="en" />
+        </h2>
+        <p className="lead" style={{
+          width: '80%',
+          maxWidth: 600
+        }}>
+          <FormattedMessage id="hero.subheading" defaultMessage="en" />
         </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
-          ad magnam consequatur excepturi laborum!
-        </p>
-        <Button color="primary" size="lg">
-          Find out more
-        </Button>
+        <Link to="/services" className="btn btn-primary btn-lg" linkclick="true" onClick={handleClick}>
+          <FormattedMessage id="hero.cta" defaultMessage="en" />
+        </Link>
       </div>
     </Hero>
   );

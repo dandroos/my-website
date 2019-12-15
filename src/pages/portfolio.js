@@ -2,7 +2,12 @@ import React, {useEffect} from "react";
 import { Row, Col, Nav, NavItem, NavLink } from "reactstrap";
 
 import Project from "../components/Project";
+import PortfolioNavLink from "../components/PortfolioNavLink"
 import BottomPadding from "../components/BottomPadding"
+
+import WebIcon from '../images/www.svg'
+import DesktopIcon from '../images/workstation.svg'
+import MobileIcon from '../images/mobile-app.svg'
 
 //TODO: Add icons
 //TODO: Add anchor links (with smooth scrolling)
@@ -14,16 +19,10 @@ export default function Portfolio(props) {
   return (
     <div>
       <h2>My Work</h2>
-      <Nav justified>
-        <NavItem>
-          <NavLink href="#web">Web</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="#desktop">Desktop</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="#mobile">Mobile</NavLink>
-        </NavItem>
+      <Nav justified className="mb-4">
+        <PortfolioNavLink title="Web" link="#web" icon={WebIcon} />
+        <PortfolioNavLink title="Desktop" link="#desktop" icon={DesktopIcon} />
+        <PortfolioNavLink title="Mobile" link="#mobile" icon={MobileIcon} />
       </Nav>
       <h3 id="web">Web</h3>
       <Row className="mb-4">
@@ -49,7 +48,7 @@ export default function Portfolio(props) {
         </Col>
       </Row>
 
-      <h3 id="web">Desktop</h3>
+      <h3 id="desktop">Desktop</h3>
       <Row className="mb-4">
         <Col sm={6}>
           <Project
@@ -71,7 +70,7 @@ export default function Portfolio(props) {
         </Col>
       </Row>
 
-      <h3 id="web">Mobile</h3>
+      <h3 id="mobile">Mobile</h3>
       <Row>
         <Col sm={6}>
           <Project
